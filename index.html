@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>positioning</title>
+    <style>
+        .container {
+            position: relative;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container img {
+            width: 100%;
+        }
+
+        .container::before,
+        .container::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 300px;
+            background-color: white;
+            box-shadow: 10px 10px;
+        }
+
+        .container::before {
+            top: 50%;
+            left: 0;
+            clip-path: polygon(13% 39%, 21% 46%, 21% 61%, 10% 67%, 0 100%, 0 45%, 0 0);
+        }
+
+        .container::after {
+            top: 50%;
+            right: 0;
+            clip-path: polygon(93% 31%, 100% 0, 100% 43%, 100% 80%, 99% 100%, 93% 65%, 81% 61%, 81% 50%, 81% 37%);
+        }
+
+        .box {
+            background-color: goldenrod;
+            height: 300px;
+            width: 200px;
+            clip-path: polygon(100% 0%, 100% 51%, 52% 100%, 48% 100%, 0% 50%, 0 0);
+        }
+        .bottom{
+            background-color: rgb(55, 111, 161);
+            position: relative;
+        }
+        .bottom img{
+            width: 100%;
+            display: block;
+        }
+        .bottom::before{
+            content: '';
+            position: absolute;
+            background-color: bisque;
+            clip-path: polygon(54% 82%, 65% 83%, 73% 93%, 100% 100%, 68% 100%, 32% 100%, 0 100%, 30% 93%, 38% 83%);
+            width: 300px;
+            height: 100px;
+            right: 50%;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="asp.jpg" alt="">
+    </div>
+    <div class="bottom">
+        <img src="asp.jpg" alt="">
+    </div>
+    <div class="box">
+        5
+    </div>
+</body>
+
+</html>
